@@ -8,7 +8,38 @@
 
 <body>
 
+	<nav>
+		<h1>.tvApp</h1>
+		<input type="text" ng-model="searchFilter.name" placeholder="search..">
+	</nav>
 
+	<section class="showList">
+		
+		<div class="row">
+			<div>Name</div>
+			<div>Summary</div>
+			<div>Time</div>
+		</div>
+
+		<div class="row" ng-reat="info in shows">
+			<div> {{ info.show.name }} </div>
+			<div> {{ info.show.summary }} </div>
+			<div> {{ info.airdate }} {{ info.airtime }} </div>
+		</div>
+
+		<div class="row" ng-reat="info in shows">
+			<div> {{ info.show.name }} </div>
+			<div> {{ info.show.summary }} </div>
+			<div> {{ info.airdate }} {{ info.airtime }} </div>
+		</div>
+		
+		<div class="row" ng-reat="info in shows">
+			<div> {{ info.show.name }} </div>
+			<div> {{ info.show.summary }} </div>
+			<div> {{ info.airdate }} {{ info.airtime }} </div>
+		</div>
+
+	</section>
 
 </body>
 

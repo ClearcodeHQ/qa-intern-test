@@ -1,0 +1,87 @@
+body {
+	font-family: 'robotoregular';
+	margin: 0;
+	padding: 0;
+}
+
+nav {
+	width: 94%;
+	height: 80px;
+	line-height: 80px;
+	padding: 0 3% 0 3%;
+	background: #d5edf8;
+}
+
+nav input {
+	width: 90px;
+	height: 35px;
+	font-size: 12pt;
+	float: right;
+	margin-top: 24px;
+	padding: 0 1% 0 1%;
+	border: none;
+	border-radius: 3px;
+	color: white;
+	background: #343434;
+	background-image: url('../img/search.png');
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+nav input:focus {
+	width: 250px;
+}
+
+nav input:focus, nav input {
+	transition: .6s all;
+}
+
+nav h1 {
+	font-size: 30pt;
+	display: inline;
+	padding: 0;
+	background: -webkit-linear-gradient(#3a3a3a, #0c0c0c);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+section {
+	width: 94%;
+	margin: 100px 3% 0 3%;
+}
+
+.row {
+	width: 90%;
+	margin: 0 auto;
+	background: #f1f1f1;
+	overflow: auto;
+}
+.row:first-of-type {
+	background: #3a3a3a;
+	color: white;
+}
+.row:nth-of-type(even) {
+	background: #eaeaea;
+}
+.row div {
+	width: 30%;
+	text-align: center;
+	text-overflow: "...";
+	float: left;
+}
+.row div:nth-of-type(2) {
+	width: 40%;
+}
+
+@font-face {
+    font-family: 'robotoregular';
+    src: url('fonts/roboto-regular-webfont.eot');
+    src: url('fonts/roboto-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/roboto-regular-webfont.woff2') format('woff2'),
+         url('fonts/roboto-regular-webfont.woff') format('woff'),
+         url('fonts/roboto-regular-webfont.ttf') format('truetype'),
+         url('fonts/roboto-regular-webfont.svg#robotoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
