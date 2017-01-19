@@ -1,4 +1,5 @@
 body {
+	background: url('../img/bg.png');
 	font-family: 'robotoregular';
 	margin: 0;
 	padding: 0;
@@ -9,7 +10,8 @@ nav {
 	height: 80px;
 	line-height: 80px;
 	padding: 0 3% 0 3%;
-	background: #d5edf8;
+	background: #98bae3;
+	background: -webkit-linear-gradient(#98bae3, #84a3c9);
 }
 
 nav input {
@@ -50,8 +52,22 @@ section {
 	margin: 100px 3% 0 3%;
 }
 
+.showList p{
+	display: block;
+}
+.showList p:first-of-type {
+	float: left;
+}
+.showList p:last-of-type {
+	float: right;
+}
+.container {
+	border: 1px #bbbbbb solid;
+	overflow: auto;
+	border-radius: 5px;
+}
 .row {
-	width: 90%;
+	width: 100%;
 	margin: 0 auto;
 	background: #f1f1f1;
 	overflow: auto;
@@ -68,9 +84,14 @@ section {
 	text-align: center;
 	text-overflow: "...";
 	float: left;
+	box-sizing: border-box;
+	padding: 5px 0 5px 0;
 }
 .row div:nth-of-type(2) {
 	width: 40%;
+	border-right: 1px solid;
+	border-left: 1px solid;
+	border-color: #949494;
 }
 
 @font-face {

@@ -6,7 +6,7 @@
 	<link rel="stylesheet" href="css/main.css">
 </head>
 
-<body>
+<body ng-app="tvApp" ng-controller="showsCtrl">
 
 	<nav>
 		<h1>.tvApp</h1>
@@ -15,29 +15,39 @@
 
 	<section class="showList">
 		
-		<div class="row">
-			<div>Name</div>
-			<div>Summary</div>
-			<div>Time</div>
+		<div class="container">
+
+			<div class="row">
+				<div>Name</div>
+				<div>Summary</div>
+				<div>Time</div>
+			</div>
+
+			<div class="row" ng-repeat="x in shows">
+					<div> {{ x.show.name }} </div>
+					<div> {{ x.show.summary }} </div>
+					<div> {{ x.airdate | date }} {{ x.airtime }}</div>
+			</div>
+
 		</div>
 
-		<div class="row" ng-reat="info in shows">
-			<div> {{ info.show.name }} </div>
-			<div> {{ info.show.summary }} </div>
-			<div> {{ info.airdate }} {{ info.airtime }} </div>
-		</div>
+		<p>
+			Shows per page: 
+			<select>
+				<option>12</option>
+				<option>25</option>
+				<option>50</option>
+				<option>100</option>
+			</select>
+		</p>
 
-		<div class="row" ng-reat="info in shows">
-			<div> {{ info.show.name }} </div>
-			<div> {{ info.show.summary }} </div>
-			<div> {{ info.airdate }} {{ info.airtime }} </div>
-		</div>
-		
-		<div class="row" ng-reat="info in shows">
-			<div> {{ info.show.name }} </div>
-			<div> {{ info.show.summary }} </div>
-			<div> {{ info.airdate }} {{ info.airtime }} </div>
-		</div>
+		<p>
+			<button ng-click="setPage(first)"> << </button>
+			<button ng-click="setPage(prev)"> < </button>
+
+			<button ng-click="setPage(last)"> > </button>
+			<button ng-click="setPage(next)"> >> </button>
+		</p>
 
 	</section>
 
