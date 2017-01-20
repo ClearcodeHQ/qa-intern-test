@@ -1,6 +1,17 @@
 (function() {
 	
-	var app = angular.module('tvApp', ['ngRoute']);
+	var app = angular.module('tvApp', ['ngRoute', 'ngSanitize', 'angularUtils.directives.dirPagination']);
+
+	app.config(['$routeProvider', function($routeProvider) {
+
+		$routeProvider
+		.when('/details/:id', {
+			templateUrl: 'pages/details.html',
+			controller: 'showsCtrl'
+		})
+		.otherwise({
+			redirectTo: '/home'
+		})
 
 	app.factory('dataDownloader', ['$http', function($http){
 
@@ -16,12 +27,25 @@
 
 	}]);
 
-	app.controller('showsCtrl', ['$scope', 'dataDownloader', function($scope, dataDownloader) {
+	app.controller('showsCtrl', ['$scope', 'dataDownloader', function($scope, dataDownloader, $filter) {
 
 		    dataDownloader(function(data) {
 				$scope.shows = data;
-				console.log($scope.shows);
+				for (i=0; i<$scope.shows.length; i++) {
+					$scope.shows[i].show.summary.replace(/<(?:.|\n)*?>/gm, '');
+				}
 			});
+
+		    $scope.sort = function(keyname) {
+			    $scope.sortKey = keyname;
+				$scope.reverse = !$scope.reverse;
+		    }
+
+		    $scope.clearSearch = function() {
+		    	$scope.search = undefined;
+		    }
+
 	}]);
+
 
 })();

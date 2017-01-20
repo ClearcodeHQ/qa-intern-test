@@ -1,43 +1,17 @@
 body {
-	background: url('../img/bg.png');
 	font-family: 'robotoregular';
 	margin: 0;
 	padding: 0;
 }
 
 nav {
-	width: 94%;
+	width: 100%;
 	height: 80px;
 	line-height: 80px;
 	padding: 0 3% 0 3%;
 	background: #98bae3;
 	background: -webkit-linear-gradient(#98bae3, #84a3c9);
 }
-
-nav input {
-	width: 90px;
-	height: 35px;
-	font-size: 12pt;
-	float: right;
-	margin-top: 24px;
-	padding: 0 1% 0 1%;
-	border: none;
-	border-radius: 3px;
-	color: white;
-	background: #343434;
-	background-image: url('../img/search.png');
-    background-repeat: no-repeat;
-    background-position: right;
-}
-
-nav input:focus {
-	width: 250px;
-}
-
-nav input:focus, nav input {
-	transition: .6s all;
-}
-
 nav h1 {
 	font-size: 30pt;
 	display: inline;
@@ -51,6 +25,36 @@ section {
 	width: 94%;
 	margin: 100px 3% 0 3%;
 }
+section input, section button {
+	height: 35px;
+	font-size: 12pt;
+	float: right;
+	margin-bottom: 24px;
+	border: none;
+	border-radius: 3px;
+	color: #adadad;
+	background: #343434;
+}
+section input {
+	width: 110px;
+	padding: 0 0 0 1%;
+	background-image: url('../img/search.png');
+    background-repeat: no-repeat;
+    background-position: right;
+}
+section input:focus {
+	width: 250px;
+}
+section input:focus, section input, section button:hover, section button {
+	transition: .6s all;
+}
+section button {
+	margin-right: 5px;
+	padding: 0 10px 0 10px;
+}
+section button:hover {
+	background: #b64141;
+}
 
 .showList p{
 	display: block;
@@ -61,11 +65,13 @@ section {
 .showList p:last-of-type {
 	float: right;
 }
+
 .container {
 	border: 1px #bbbbbb solid;
 	overflow: auto;
 	border-radius: 5px;
 }
+
 .row {
 	width: 100%;
 	margin: 0 auto;
@@ -82,16 +88,18 @@ section {
 .row div {
 	width: 30%;
 	text-align: center;
-	text-overflow: "...";
+	text-overflow: ellipsis;
 	float: left;
 	box-sizing: border-box;
-	padding: 5px 0 5px 0;
+	padding: 10px 5px 10px 5px;
 }
 .row div:nth-of-type(2) {
 	width: 40%;
 	border-right: 1px solid;
 	border-left: 1px solid;
 	border-color: #949494;
+	white-space: nowrap;
+	overflow: hidden;
 }
 
 @font-face {

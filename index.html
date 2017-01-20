@@ -3,58 +3,83 @@
 
 <head>
 	<title>tvApp</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/main.css">
+
 </head>
 
 <body ng-app="tvApp" ng-controller="showsCtrl">
 
 	<nav>
 		<h1>.tvApp</h1>
-		<input type="text" ng-model="searchFilter.name" placeholder="search..">
 	</nav>
 
 	<section class="showList">
-		
-		<div class="container">
+
+
+			<input type="text" ng-model="search" placeholder="search..">
+			<button class="clearSearch" ng-click="clearSearch()">X</button>
 
 			<div class="row">
-				<div>Name</div>
-				<div>Summary</div>
-				<div>Time</div>
+
+				<div ng-click="sort('show.name')">
+						<span class="glyphicon sort-icon" ng-show="sortKey == 'show.name'" ng-class="{'glyphicon-chevron-up':reverse, 'glyphicon-chevron-down':!reverse}"></span>
+						Name
+				</div>
+
+				<div ng-click="sort('show.summary')">
+						<span class="glyphicon sort-icon" ng-show="sortKey == 'show.summary'" ng-class="{'glyphicon-chevron-up':reverse, 'glyphicon-chevron-down':!reverse}"></span>
+						Summary
+				</div>
+
+				<div ng-click="sort('airtime')">
+						<span class="glyphicon sort-icon" ng-show="sortKey == 'airtime'" ng-class="{'glyphicon-chevron-up':reverse, 'glyphicon-chevron-down':!reverse}"></span>
+						Time
+				</div>
+
 			</div>
 
-			<div class="row" ng-repeat="x in shows">
-					<div> {{ x.show.name }} </div>
-					<div> {{ x.show.summary }} </div>
-					<div> {{ x.airdate | date }} {{ x.airtime }}</div>
-			</div>
+			<a href="#/details/{{x.id}}" alt="details">
+				<div class="row" dir-paginate="x in shows | itemsPerPage: perPage | filter:search | orderBy:sortKey:reverse" >
+						<div> {{ x.show.name }} </div>
+						<div> {{ x.show.summary }} </div>
+						<div> {{ x.airdate | date }} {{ x.airtime }}</div>
+				</div>
+			</a>
 
-		</div>
+	<p>
+		Shows per page: 
+		<select ng-model="perPage" ng-init="perPage=12">
+			<option>12</option>
+			<option>25</option>
+			<option>50</option>
+			<option>100</option>
+		</select>
+	</p>
 
-		<p>
-			Shows per page: 
-			<select>
-				<option>12</option>
-				<option>25</option>
-				<option>50</option>
-				<option>100</option>
-			</select>
-		</p>
-
-		<p>
-			<button ng-click="setPage(first)"> << </button>
-			<button ng-click="setPage(prev)"> < </button>
-
-			<button ng-click="setPage(last)"> > </button>
-			<button ng-click="setPage(next)"> >> </button>
-		</p>
+	<p>
+		<dir-pagination-controls
+	    [max-size=""]
+	    [direction-links=""]
+	    [boundary-links=""]
+	    [on-page-change=""]
+	    [pagination-id=""]
+	    [template-url=""]
+	    [auto-hide=""]>
+	    </dir-pagination-controls>
+	</p>
 
 	</section>
 
 </body>
 
+
 	<script src="https://code.angularjs.org/1.5.8/angular.js"></script>
+<!-- 	<script src="scripts/ui-bootstrap-tpls-2.4.0.min.js"></script> -->
+	<script src="https://code.angularjs.org/1.5.8/angular-sanitize.js"></script>
 	<script src="https://code.angularjs.org/1.5.8/angular-route.js"></script>
+	<script src="scripts/pagination.js"></script>
 	<script src="scripts/ngApp.js"></script>
 
 </html>
