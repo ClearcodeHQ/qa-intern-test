@@ -5,13 +5,19 @@
 	app.config(['$routeProvider', function($routeProvider) {
 
 		$routeProvider
-		.when('/details/:id', {
+		.when('/home', {
+			templateUrl: 'pages/home.html',
+			controller: 'showsCtrl'
+		})
+		.when('/details/:showId', {
 			templateUrl: 'pages/details.html',
 			controller: 'showsCtrl'
 		})
 		.otherwise({
 			redirectTo: '/home'
 		})
+
+	}]);
 
 	app.factory('dataDownloader', ['$http', function($http){
 
@@ -27,12 +33,27 @@
 
 	}]);
 
-	app.controller('showsCtrl', ['$scope', 'dataDownloader', function($scope, dataDownloader, $filter) {
+	// app.filter('clearDesc', ['clearDesc', function(decoration) {
+
+	//   function clearedDesc(input) {
+	//     input = input.replace("<p>", "");
+	//     input = input.replace("<strong>", "");
+	//     return input;
+	//   }
+	//   clearedDesc.$stateful = true;
+
+	//   return clearedDesc;
+	// }])
+
+	app.controller('showsCtrl', ['$scope', '$routeParams', 'dataDownloader', function($scope, $routeParams, dataDownloader, $filter) {
+
+			$scope.id = $routeParams.showId; 
 
 		    dataDownloader(function(data) {
 				$scope.shows = data;
-				for (i=0; i<$scope.shows.length; i++) {
-					$scope.shows[i].show.summary.replace(/<(?:.|\n)*?>/gm, '');
+
+				for (i=0; i < $scope.shows.length; i++) {
+					$scope.shows[i].show.summary = $scope.shows[i].show.summary.replace('<p>','').replace('<strong>','').replace('</p>','').replace('</strong>','').replace('</em>','').replace('<em>','').replace('<i>','').replace('</i>','');
 				}
 			});
 

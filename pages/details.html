@@ -1,0 +1,16 @@
+
+<a href="#/home"><button class="navBtn">Back</button></a>
+
+<section class="details" ng-repeat="x in shows | filter: {id : id}">
+
+	<div class="leftHalf">
+		<p> <strong>Name:</strong> {{ x.show.name }} </p>
+		<p> <strong>When?</strong> {{ x.airtime }} on {{ x.airdate }} </p>
+		<p> <strong>Description:</strong> {{ x.show.summary }}  </p>
+	</div>
+
+	<div class="rightHalf">
+		<img src="{{x.show.image.medium}}"
+	</div>
+
+</section>

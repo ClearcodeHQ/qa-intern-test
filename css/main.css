@@ -2,6 +2,7 @@ body {
 	font-family: 'robotoregular';
 	margin: 0;
 	padding: 0;
+	font-size: 15pt;
 }
 
 nav {
@@ -45,8 +46,8 @@ section input {
 section input:focus {
 	width: 250px;
 }
-section input:focus, section input, section button:hover, section button {
-	transition: .6s all;
+section input:focus, section input, section button:hover, section button, .navBtn a:hover, .navBtn a {
+	transition: .6s all !important;
 }
 section button {
 	margin-right: 5px;
@@ -100,6 +101,28 @@ section button:hover {
 	border-color: #949494;
 	white-space: nowrap;
 	overflow: hidden;
+}
+
+.navBtn {
+	width: 120px;
+	height: 40px;
+	background: #98bae3;
+	border: none;
+	border-radius: 3px;
+	margin: 40px 0 0 3%;
+}
+.navBtn a {
+	color: white;
+}
+.rightHalf, .leftHalf {
+	float: left;
+}
+.rightHalf {
+	width: 30%;
+}
+.leftHalf {
+	width: 65%;
+	margin-right: 5%;
 }
 
 @font-face {
