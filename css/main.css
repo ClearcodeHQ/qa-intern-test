@@ -5,9 +5,25 @@ body {
 	font-size: 15pt;
 }
 
+section {
+	width: 94%;
+	margin: 50px 3% 0 3%;
+	overflow: auto;
+}
+section p:last-of-type {
+	display: none;
+}
+
+a {
+	color: black !important;
+}
+a:hover {
+	color: #6c909c !important;
+}
+
 nav {
 	width: 100%;
-	height: 80px;
+	height: 70px;
 	line-height: 80px;
 	padding: 0 3% 0 3%;
 	background: #98bae3;
@@ -22,39 +38,56 @@ nav h1 {
 	-webkit-text-fill-color: transparent;
 }
 
-section {
-	width: 94%;
-	margin: 100px 3% 0 3%;
-}
-section input, section button {
-	height: 35px;
-	font-size: 12pt;
-	float: right;
-	margin-bottom: 24px;
+input, button, select {
+	height: 45px;
+	font-size: 14pt;
 	border: none;
 	border-radius: 3px;
 	color: #adadad;
 	background: #343434;
 }
-section input {
-	width: 110px;
+input, button {
+	float: right;
+	margin-bottom: 24px;
+}
+button {
+	margin-left: 5px;
+	padding: 0 15px 0 15px;
+	font-size: 12pt;
+}
+section button:hover {
+	background: #b64141;
+}
+input {
+	width: 130px;
 	padding: 0 0 0 1%;
 	background-image: url('../img/search.png');
     background-repeat: no-repeat;
     background-position: right;
 }
-section input:focus {
+input:focus {
 	width: 250px;
 }
-section input:focus, section input, section button:hover, section button, .navBtn a:hover, .navBtn a {
+input:focus, input, button:hover, button, a, a:hover {
 	transition: .6s all !important;
 }
-section button {
-	margin-right: 5px;
-	padding: 0 10px 0 10px;
+select {
+	width: 65px;
+	background: #343434;
+	height: 30px;
 }
-section button:hover {
-	background: #b64141;
+
+@font-face {
+    font-family: 'robotoregular';
+    src: url('fonts/roboto-regular-webfont.eot');
+    src: url('fonts/roboto-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/roboto-regular-webfont.woff2') format('woff2'),
+         url('fonts/roboto-regular-webfont.woff') format('woff'),
+         url('fonts/roboto-regular-webfont.ttf') format('truetype'),
+         url('fonts/roboto-regular-webfont.svg#robotoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
 }
 
 .showList p{
@@ -65,12 +98,6 @@ section button:hover {
 }
 .showList p:last-of-type {
 	float: right;
-}
-
-.container {
-	border: 1px #bbbbbb solid;
-	overflow: auto;
-	border-radius: 5px;
 }
 
 .row {
@@ -106,34 +133,32 @@ section button:hover {
 .navBtn {
 	width: 120px;
 	height: 40px;
-	background: #98bae3;
+	background: #343434;
 	border: none;
 	border-radius: 3px;
-	margin: 40px 0 0 3%;
+	float: left;
+	margin: 30px 0 30px 3%;
 }
 .navBtn a {
-	color: white;
+	color: white !important;
 }
-.rightHalf, .leftHalf {
-	float: left;
+.nabBtn:hover {
+	background: #282828 !important;
 }
 .rightHalf {
 	width: 30%;
+	height: 60vh;
+	float: right;
 }
 .leftHalf {
 	width: 65%;
 	margin-right: 5%;
+	float: left;
 }
-
-@font-face {
-    font-family: 'robotoregular';
-    src: url('fonts/roboto-regular-webfont.eot');
-    src: url('fonts/roboto-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/roboto-regular-webfont.woff2') format('woff2'),
-         url('fonts/roboto-regular-webfont.woff') format('woff'),
-         url('fonts/roboto-regular-webfont.ttf') format('truetype'),
-         url('fonts/roboto-regular-webfont.svg#robotoregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
+.pagination .active a, .pagination .active a:focus {
+	background: #c1ccd0;
+	border-color: black;
+}
+.pagination .active a:hover {
+	background: #aab7bb;
 }

@@ -3,30 +3,28 @@
 
 <head>
 	<title>tvApp</title>
-
+	<meta charset="utf-8" /> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<link rel="stylesheet" href="css/main.css">
-
+	<link rel="stylesheet" href="css/main.min.css">
+	<link rel="stylesheet" media="(max-width: 768px)" href="css/mobile.min.css" />
 </head>
 
-<body ng-app="tvApp" ng-controller="showsCtrl">
+<body data-ng-app="tvApp" data-ng-controller="showsCtrl">
 
 	<nav>
-		<h1>.tvApp</h1>
+		<h1>tvApp</h1>
 	</nav>
 
-<div ng-view>
+	<div data-ng-view>
 
-</div>
+	</div>
 
-</body>
-
-
-	<script src="https://code.angularjs.org/1.5.8/angular.js"></script>
-<!-- 	<script src="scripts/ui-bootstrap-tpls-2.4.0.min.js"></script> -->
-	<script src="https://code.angularjs.org/1.5.8/angular-sanitize.js"></script>
-	<script src="https://code.angularjs.org/1.5.8/angular-route.js"></script>
+	<script src="https://code.angularjs.org/1.5.8/angular.min.js"></script>
+	<script src="https://code.angularjs.org/1.5.8/angular-sanitize.min.js"></script>
+	<script src="https://code.angularjs.org/1.5.8/angular-route.min.js"></script>
 	<script src="scripts/pagination.js"></script>
 	<script src="scripts/ngApp.js"></script>
 
+</body>
 </html>

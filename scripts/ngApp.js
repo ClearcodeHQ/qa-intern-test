@@ -33,18 +33,6 @@
 
 	}]);
 
-	// app.filter('clearDesc', ['clearDesc', function(decoration) {
-
-	//   function clearedDesc(input) {
-	//     input = input.replace("<p>", "");
-	//     input = input.replace("<strong>", "");
-	//     return input;
-	//   }
-	//   clearedDesc.$stateful = true;
-
-	//   return clearedDesc;
-	// }])
-
 	app.controller('showsCtrl', ['$scope', '$routeParams', 'dataDownloader', function($scope, $routeParams, dataDownloader, $filter) {
 
 			$scope.id = $routeParams.showId; 

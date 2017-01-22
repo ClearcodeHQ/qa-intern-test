@@ -3,14 +3,16 @@
 
 <section class="details" ng-repeat="x in shows | filter: {id : id}">
 
+	<div class="rightHalf">
+		<img src="{{x.show.image.medium}}" alt="show cover image">
+	</div>
+
 	<div class="leftHalf">
+		<p></p>
 		<p> <strong>Name:</strong> {{ x.show.name }} </p>
 		<p> <strong>When?</strong> {{ x.airtime }} on {{ x.airdate }} </p>
 		<p> <strong>Description:</strong> {{ x.show.summary }}  </p>
-	</div>
-
-	<div class="rightHalf">
-		<img src="{{x.show.image.medium}}"
+		<p></p>
 	</div>
 
 </section>

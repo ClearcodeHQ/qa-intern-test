@@ -1,16 +1,18 @@
 	<section class="showList">
 
 	<p>
-		Shows per page: 
 		<select ng-model="perPage" ng-init="perPage=12">
 			<option>12</option>
 			<option>25</option>
 			<option>50</option>
 			<option>100</option>
 		</select>
+		shows per page 
 	</p>
-			<input type="text" ng-model="search" placeholder="search..">
+
 			<button class="clearSearch" ng-click="clearSearch()">X</button>
+			<input type="text" ng-model="search" placeholder="search..">
+
 
 			<div class="row">
 
@@ -32,7 +34,7 @@
 			</div>
 
 			
-				<div class="row" dir-paginate="x in shows | itemsPerPage: perPage | filter:search | orderBy:sortKey:reverse" >
+				<div class="row" dir-paginate="x in shows | filter:search | itemsPerPage: perPage | orderBy:sortKey:reverse" >
 					<a href="#/details/{{x.id}}" alt="details">
 						<div> {{ x.show.name }} </div>
 						<div> {{ x.show.summary }} </div>
@@ -43,16 +45,26 @@
 
 
 
-	<p>
+	<p class="paginationP">
 		<dir-pagination-controls
 	    [max-size=""]
 	    [direction-links=""]
-	    [boundary-links=""]
-	    [on-page-change=""]
+	    [boundary-links="true"]
+	    [on-page-change="pageChangeHandler(newPageNumber)"]
 	    [pagination-id=""]
 	    [template-url=""]
 	    [auto-hide=""]>
 	    </dir-pagination-controls>
+	</p>
+
+	<p>
+		<select ng-model="perPage" ng-init="perPage=12">
+			<option>12</option>
+			<option>25</option>
+			<option>50</option>
+			<option>100</option>
+		</select>
+		shows per page 
 	</p>
 
 	</section>
