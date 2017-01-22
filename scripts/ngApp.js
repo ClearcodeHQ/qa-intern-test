@@ -54,6 +54,33 @@
 		    	$scope.search = undefined;
 		    }
 
+		    $scope.favs = JSON.parse(localStorage.getItem("showId")) || [];
+
+		    $scope.checkFav = function(id) {
+		    	if ($scope.favs.indexOf(id) == -1) {
+		    		return false;
+		    	} else {
+		    		return true;
+		    	}
+		    }
+
+		   	$scope.deleteFav = function(id) {
+		   		var index = $scope.favs.indexOf(id);
+
+		   		if (index > -1) {
+		   			$scope.favs.splice(index, 1);
+		   		}
+
+		    	localStorage.setItem("showId", JSON.stringify($scope.favs));
+		    	$scope.favsParsed = JSON.parse(localStorage.getItem("showId"));
+		    }
+
+		    $scope.addFav = function(id) {
+		    	$scope.favs.push(id);
+		    	localStorage.setItem("showId", JSON.stringify($scope.favs));
+		    	$scope.favsParsed = JSON.parse(localStorage.getItem("showId"));
+		    }
+
 	}]);
 
 

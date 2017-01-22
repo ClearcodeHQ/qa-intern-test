@@ -100,20 +100,20 @@ select {
 	float: right;
 }
 
-.row {
+.row, .rowHeader {
 	width: 100%;
 	margin: 0 auto;
 	background: #f1f1f1;
 	overflow: auto;
 }
-.row:first-of-type {
+.rowHeader {
 	background: #3a3a3a;
 	color: white;
 }
 .row:nth-of-type(even) {
 	background: #eaeaea;
 }
-.row div {
+.row div, .rowHeader div {
 	width: 30%;
 	text-align: center;
 	text-overflow: ellipsis;
@@ -121,7 +121,7 @@ select {
 	box-sizing: border-box;
 	padding: 10px 5px 10px 5px;
 }
-.row div:nth-of-type(2) {
+.row div:nth-of-type(2), .rowHeader div:nth-of-type(2) {
 	width: 40%;
 	border-right: 1px solid;
 	border-left: 1px solid;

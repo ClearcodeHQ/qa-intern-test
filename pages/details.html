@@ -9,6 +9,14 @@
 
 	<div class="leftHalf">
 		<p></p>
+		<p ng-show="checkFav(x.id)">
+			<img src="img/fav.png" alt="add to fav" ng-click="deleteFav(x.id)"><br>
+			<i>Delete from favorites</i>
+		</p>
+		<p ng-hide="checkFav(x.id)">
+			<img src="img/fav2.png" alt="delete fav" ng-click="addFav(x.id)"><br>
+			<i>Add to favorites</i>
+		</p>
 		<p> <strong>Name:</strong> {{ x.show.name }} </p>
 		<p> <strong>When?</strong> {{ x.airtime }} on {{ x.airdate }} </p>
 		<p> <strong>Description:</strong> {{ x.show.summary }}  </p>
