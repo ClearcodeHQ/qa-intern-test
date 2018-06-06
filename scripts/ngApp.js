@@ -23,7 +23,7 @@
 
 		return function(callback) {
 
-			var url = 'http://api.tvmaze.com/schedule';
+			var url = 'https://api.tvmaze.com/schedule';
 			callback = callback||function(){};
 
 			$http.get(url)
